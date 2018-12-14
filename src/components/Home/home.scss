@@ -1,0 +1,7 @@
+@import "../../index.scss";
+
+#home {
+    padding: $ppr-mainPadding;
+    padding-top: $ppr-headerHeight + $ppr-mainPadding;
+    display: flex;
+}

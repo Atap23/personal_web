@@ -1,14 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Button from '@material-ui/core/Button';
-import style from './index.scss';
+import { BrowserRouter } from 'react-router-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+import App from "./components/App/App";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: { main: '#424242' }, // Purple and green play nicely together.
+        secondary: { main: '#ef6c00' }, // This is just green.A700 as hex.
+      },
+    typography: { useNextVariants: true },
+  });
 
 
-const Index = () => {
-    return <div id="main" className="main">
-        Helloo Reactoso!
-        <Button style={{position: 'absolute', top: '100px', left: '100px'}} variant="contained">Test Button</Button>
-    </div>;
-};
 
-ReactDOM.render(<Index />, document.getElementById("index"));
+ReactDOM.render((
+    <MuiThemeProvider theme={theme}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter> 
+    </MuiThemeProvider>
+), document.getElementById("index"));
